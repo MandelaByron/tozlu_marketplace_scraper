@@ -16,17 +16,45 @@ NEWSPIDER_MODULE = "tozlu.spiders"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 
+LOG_FILE = 'logs.txt'
+LOG_LEVEL= 'INFO'
+LOG_FILE_APPEND= False
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 300
 
-DOWNLOAD_HANDLERS = {
-    'http':'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
-    'https':'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler'
-    
+##DONT CHANGE THIS
+CONCURRENT_REQUESTS = 10
+# settings.py
+
+# Splash Server Endpoint
+# SPLASH_URL = 'http://localhost:8050'
+
+
+# Enable Splash downloader middleware and change HttpCompressionMiddleware priority
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy_splash.SplashCookiesMiddleware': 723,
+#     'scrapy_splash.SplashMiddleware': 725,
+#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+# }
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_requests.RequestsMiddleware': 800
 }
+# Enable Splash Deduplicate Args Filter
+# SPIDER_MIDDLEWARES = {
+#     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+# }
 
-PLAYWRIGHT_BROWSER_TYPE = 'chromium'
+# Define the Splash DupeFilter
+#DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+
+# DOWNLOAD_HANDLERS = {
+#     'http':'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+#     'https':'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler'
+    
+# }
+
+#PLAYWRIGHT_BROWSER_TYPE = 'chromium'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs

@@ -4,7 +4,8 @@ from urllib.parse import urlencode
 from bs4 import BeautifulSoup
 from ..items import TozluItem
 from inline_requests import inline_requests
-from scrapy.http import Request
+
+from scrapy_requests import HtmlRequest
 
 headers = {
     
@@ -35,6 +36,15 @@ class CrawlerSpider(scrapy.Spider):
     strings=[
     
     {"FilterJson":"{\"CategoryIdList\":[271],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[274],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[3013],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[3196],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[1940],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[3301],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[1462],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    {"FilterJson":"{\"CategoryIdList\":[1496],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    #{"FilterJson":"{\"CategoryIdList\":[271],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"Point\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsInStock\":false,\"IsPriceRequest\":true,\"NonStockShowEnd\":0}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"YAYINTARIHI\",\"OrderDirection\":\"DESC\"}","PageType":"1","PageId":"271"},
+    
     #{"FilterJson":"{\"CategoryIdList\":[192],\"BrandIdList\":[],\"SupplierIdList\":[],\"TagIdList\":[],\"TagId\":-1,\"FilterObject\":[],\"MinStockAmount\":-1,\"IsShowcaseProduct\":-1,\"IsOpportunityProduct\":-1,\"FastShipping\":-1,\"IsNewProduct\":-1,\"IsDiscountedProduct\":-1,\"IsShippingFree\":-1,\"IsProductCombine\":-1,\"MinPrice\":0,\"MaxPrice\":0,\"SearchKeyword\":\"\",\"StrProductIds\":\"\",\"IsSimilarProduct\":false,\"RelatedProductId\":0,\"ProductKeyword\":\"\",\"PageContentId\":0,\"StrProductIDNotEqual\":\"\",\"IsVariantList\":-1,\"IsVideoProduct\":-1,\"ShowBlokVideo\":-1,\"VideoSetting\":{\"ShowProductVideo\":-1,\"AutoPlayVideo\":-1},\"ShowList\":1,\"VisibleImageCount\":6,\"ShowCounterProduct\":-1,\"ImageSliderActive\":false,\"ProductListPageId\":0,\"ShowGiftHintActive\":false,\"IsProductListPage\":true,\"NonStockShowEnd\":1}","PagingJson":"{\"PageItemCount\":0,\"PageNumber\":1,\"OrderBy\":\"KATEGORISIRA\",\"OrderDirection\":\"ASC\"}","CreateFilter":"false","TransitionOrder":"0","PageType":"1"},
   
 ]
@@ -60,7 +70,7 @@ class CrawlerSpider(scrapy.Spider):
         
         for querystring in self.strings:
             pages = self.get_pages(qs=querystring)
-            pages = 3
+            #pages = 3
             for i in range(0,pages + 1):
                 #print(i)
                 qs = querystring
@@ -87,11 +97,22 @@ class CrawlerSpider(scrapy.Spider):
             
             list_price= product['productSellPrice'] + product['productSellPriceKDV']
             
-            parse_page = yield Request(url=scrap_url,meta={'playwright':True})
             
-            price = parse_page.xpath("//div[@class='DetSepetFiyat']/span/text()").get()
+            page_resp = yield HtmlRequest(url=scrap_url, render=True,options={'timeout':400})
             
-            price = price.strip().replace('TL','').replace(',','.')
+            price=page_resp.xpath('//div[@class="DetSepetFiyat"]/span/text()').get()
+            
+            if price == None:
+                price = list_price
+            else:
+            
+                price = price.strip().replace('TL','').replace('.','').replace(',','.')
+                price = float(price)
+            # if product['opportunityProduct']:
+            #     price = list_price * 0.72
+            # else:
+            #     price = list_price
+
             
             product_id = product['productId']
 
@@ -113,11 +134,11 @@ class CrawlerSpider(scrapy.Spider):
             
             
             
-            items['price'] = round(price,1)
+            items['price'] = round(price,2)
             
             
             
-            items['list_price'] = round(list_price,1)
+            items['list_price'] = round(list_price,2)
             
            
             
@@ -169,11 +190,7 @@ class CrawlerSpider(scrapy.Spider):
             yield_items['group_code'] = group_code
         except:
             yield_items['group_code'] = ''
-        
-        # try:
-        #     yield_items['qty']=data['detail']['product']['stockAmount']
-        # except:
-        #     yield_items['qty']=''
+
         
         for counter,image in enumerate(data['detail']['product']['images'],start=1):
             if counter <=10 :
@@ -207,18 +224,7 @@ class CrawlerSpider(scrapy.Spider):
 
                     yield yield_items
                     
-                # elif variant['ekSecenekTipiTanim'] == 'Beden':
-                                       
-                #     yield_items['size'] = variant['tanim']
-                    
-                # else:
-                #     yield_items['size']=''
-                #     yield_items['color']=''
-                # for product in data['detailModel']['products']:
-                #     product_code = product['stokKodu']
-                #     yield_items['product_code']=product_code
-                    
-                # yield yield_items
+
         else:
             yield_items['size']=''
             yield_items['color']=''

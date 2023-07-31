@@ -122,7 +122,7 @@ class CrawlerSpider(scrapy.Spider):
             }  
 
             
-            brand = product['brand']
+            brand = 'Tozlu'
             
             name = product['name']
             
@@ -212,7 +212,7 @@ class CrawlerSpider(scrapy.Spider):
                 for variant in data['detailModel']['products']:
                     size = variant['tedarikciKodu'].split('|')[-1]
                     
-                    product_code = variant['stokKodu'] + ',' + color + ',' + size
+                    product_code = variant['stokKodu'] + '-' + size
                     
                     yield_items['product_code']=product_code
                     
